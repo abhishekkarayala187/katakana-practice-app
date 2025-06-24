@@ -1,58 +1,13 @@
 import React, { useState, useEffect } from "react";
+import karatanaChars from "./utilities/katakana.json"; // Assuming you have a separate file for katakana characters
 import { Shuffle, RotateCcw, CheckCircle, XCircle, Star } from "lucide-react";
 
 const KatakanaPracticeApp = () => {
   // Katakana characters with their romanized equivalents
-  const katakanaChars = [
-    { katakana: "ア", romaji: "a" },
-    { katakana: "イ", romaji: "i" },
-    { katakana: "ウ", romaji: "u" },
-    { katakana: "エ", romaji: "e" },
-    { katakana: "オ", romaji: "o" },
-    { katakana: "カ", romaji: "ka" },
-    { katakana: "キ", romaji: "ki" },
-    { katakana: "ク", romaji: "ku" },
-    { katakana: "ケ", romaji: "ke" },
-    { katakana: "コ", romaji: "ko" },
-    { katakana: "サ", romaji: "sa" },
-    { katakana: "シ", romaji: "shi" },
-    { katakana: "ス", romaji: "su" },
-    { katakana: "セ", romaji: "se" },
-    { katakana: "ソ", romaji: "so" },
-    { katakana: "タ", romaji: "ta" },
-    { katakana: "チ", romaji: "chi" },
-    { katakana: "ツ", romaji: "tsu" },
-    { katakana: "テ", romaji: "te" },
-    { katakana: "ト", romaji: "to" },
-    { katakana: "ナ", romaji: "na" },
-    { katakana: "ニ", romaji: "ni" },
-    { katakana: "ヌ", romaji: "nu" },
-    { katakana: "ネ", romaji: "ne" },
-    { katakana: "ノ", romaji: "no" },
-    { katakana: "ハ", romaji: "ha" },
-    { katakana: "ヒ", romaji: "hi" },
-    { katakana: "フ", romaji: "fu" },
-    { katakana: "ヘ", romaji: "he" },
-    { katakana: "ホ", romaji: "ho" },
-    { katakana: "マ", romaji: "ma" },
-    { katakana: "ミ", romaji: "mi" },
-    { katakana: "ム", romaji: "mu" },
-    { katakana: "メ", romaji: "me" },
-    { katakana: "モ", romaji: "mo" },
-    { katakana: "ヤ", romaji: "ya" },
-    { katakana: "ユ", romaji: "yu" },
-    { katakana: "ヨ", romaji: "yo" },
-    { katakana: "ラ", romaji: "ra" },
-    { katakana: "リ", romaji: "ri" },
-    { katakana: "ル", romaji: "ru" },
-    { katakana: "レ", romaji: "re" },
-    { katakana: "ロ", romaji: "ro" },
-    { katakana: "ワ", romaji: "wa" },
-    { katakana: "ヰ", romaji: "wi" },
-    { katakana: "ヱ", romaji: "we" },
-    { katakana: "ヲ", romaji: "wo" },
-    { katakana: "ン", romaji: "n" },
-  ];
+  const katakanaChars = karatanaChars.map((char) => ({
+    katakana: char.katakana,
+    romaji: char.romaji,
+  }));
 
   const [currentChar, setCurrentChar] = useState(katakanaChars[0]);
   const [userInput, setUserInput] = useState("");
@@ -98,7 +53,7 @@ const KatakanaPracticeApp = () => {
 
     if (isCorrect) {
       setScore(score + 1);
-      setFeedback("Correct! 正解！");
+      setFeedback("Correct! 正解！"); // "正解" (seikai) means "correct" or "right" in Japanese.
       setTimeout(() => {
         nextCharacter();
       }, 1500);
