@@ -53,7 +53,7 @@ const KatakanaPracticeApp = () => {
 
     if (isCorrect) {
       setScore(score + 1);
-      setFeedback("Correct! 正解！");
+      setFeedback("Correct! 正解！"); // "正解" (seikai) means "correct" or "right" in Japanese.
       setTimeout(() => {
         nextCharacter();
       }, 1500);
